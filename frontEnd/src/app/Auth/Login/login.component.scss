@@ -1,0 +1,25 @@
+#parent
+{
+    height: 100vh;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#parent ::before{
+    content: '';
+    background: url("../../../imgs/MicrosoftTeams-image.png") center center/cover;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1;
+    height: 100%;
+    width: 100%;
+}
+
+.btn-dark:disabled{
+    background-color: #929699;
+    opacity: 1;
+    //cursor: not-allowed;
+}

@@ -1,0 +1,54 @@
+<div class="app-body" id="parent">
+  <main class="main d-flex align-items-center" style="width: 100%;">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="card-group">
+            <div class="card p-4">
+              <div class="card-body">
+                <form autocomplete="off" #f="ngForm" name="form">
+                  <h1>Login</h1>
+                  <p class="text-muted">Sign In to your account </p>
+                  <div class="form-group mb-3">
+                    <input [(ngModel)]="login.email" #email="ngModel" name="email" type="text" class="form-control"
+                      placeholder="Enter mail" required>
+                    <div class="text-danger p-1" *ngIf="(f.submitted && email.invalid)">Email is required</div>
+                  </div>
+                  <div class="form-group mb-4">
+                    <input [(ngModel)]="login.password" name="password" type="password" class="form-control"
+                      placeholder="Enter password" required>
+                    <div class="col-12 text-right">
+                      <div class="text-danger p-1" *ngIf="errorMessage">{{errorMessage}}</div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-12 d-flex justify-content-between">
+                      <a routerLink="/auth/forgot"  style="color: #007bff;cursor: pointer;
+                      margin-top: 10px;
+                      font-size: 14px;
+                      font-weight: bold;
+                      text-decoration: underline;" ></a>
+                      <button [disabled]="!f.form.valid" (click)="f.form.valid ? submit() : ''" type="submit"  class="btn px-4 text-white btn-dark"
+                        >Submit</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <!-- <div class="card text-white bg-info py-5 d-md-down-none">
+              <div class="card-body text-center">
+                <div>
+                  <h2>Sign Up</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                    labore et dolore magna aliqua.</p>
+                   <button routerLink="/auth/register" class="btn px-4"
+                  style="background-color: #fff;color: black;">Register</button>
+                </div>
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</div>

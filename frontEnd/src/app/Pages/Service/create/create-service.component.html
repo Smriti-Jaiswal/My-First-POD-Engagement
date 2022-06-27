@@ -1,0 +1,45 @@
+<ol class="breadcrumb">
+    <li class="breadcrumb-item">
+        <a routerLink="/pages/landing/index">Main</a>
+    </li>
+    <li class="breadcrumb-item active">Service</li>
+</ol>
+
+<div class="co">
+    <div class="card p-3">
+        <div class="text-center"><h1>Request Service</h1></div>
+        <form autocomplete="off" #f="ngForm" name="form">
+            <div class="row">
+                <div class="col-md-6 col-sm-12 col-12">
+                    <mat-form-field class="w-100">
+                        <mat-label>Type</mat-label>
+                        <mat-select [(ngModel)]="serviceReqModel.type" name="type" #type="ngModel" required>
+                            <mat-option *ngFor="let each of ['DEBITCARD','CHEQUE','WITHDRAW']" [value]="each">
+                                {{each}}
+                            </mat-option>
+                        </mat-select>
+                        <mat-error *ngIf="type.errors?.required">This field is required</mat-error>
+                    </mat-form-field>
+                </div>
+
+                <div class="col-md-6 col-sm-12 col-12" *ngIf="serviceReqModel.type === 'WITHDRAW'">
+                    <mat-form-field class="w-100">
+                        <mat-label>Amount</mat-label>
+                        <input type="number" [(ngModel)]="serviceReqModel.amount" name="amount" #amount="ngModel" matInput [required]="serviceReqModel.type === 'WITHDRAW'">
+                        <mat-error *ngIf="amount.errors?.required">This field is required</mat-error>
+                    </mat-form-field>
+                </div>
+               
+
+                <div class="col-md-12 col-sm-12 col-12">
+                    <div class="text-right">
+                        <button (click)="f.form.valid ? submit() : ''" class="btn btn-sm bg-success"> {{isEdit ?
+                            'Update' :
+                            'Create'}} <i class="fa fa-spinner fa-pulse"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

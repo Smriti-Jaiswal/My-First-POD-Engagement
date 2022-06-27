@@ -1,0 +1,30 @@
+.nodes rect {
+  cursor: move;
+  fill-opacity: .9;
+  shape-rendering: crispEdges;
+}
+
+.nodes text {
+  pointer-events: none;
+  text-shadow: 0 1px 0 #fff;
+}
+
+.links {
+  fill: none;
+  stroke: #000;
+  stroke-opacity: .15;
+}
+
+.links:hover {
+  stroke-opacity: .25;
+}
+
+#sankey {
+  position: absolute;
+}
+
+#sankey {
+  position: absolute;
+}
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

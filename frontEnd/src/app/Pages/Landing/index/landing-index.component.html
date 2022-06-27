@@ -1,0 +1,56 @@
+<div class="col-12">
+    <div class="d-flex justify-content-between align-items-center mt-4">
+        <div></div>
+        <div class="text-center">
+            <img style="height: 143px;"
+                src="https://i.pinimg.com/736x/90/19/4b/90194b7f2ca68a3d80dc41a6e20ae1de.jpg"
+                alt="">
+        </div>
+        <div>
+        </div>
+    </div>
+    <div class="row"> 
+        <div *ngIf="currentUserDetails?.Role === 'User'" class="col-md-12 col-12 text-center">
+            <div class="module"> 
+                <h1 class="text-white mt-3" >Hi, {{resp?.firstName}} {{resp?.lastName}} </h1>
+                <h1 class="text-white mt-3" >ACCOUNT BALANCE : Rs. {{resp?.balance}} </h1>
+                <h4 class="acct_number mt-3" >{{resp?.accountNumber}}</h4>
+            </div>
+        </div>      
+        <div *ngIf="currentUserDetails?.Role !== 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/users/create" class="module mid">
+                <h2>User Registration</h2>
+            </div>
+        </div>
+        <div *ngIf="currentUserDetails?.Role !== 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/users/index" class="module mid">
+                <h2>User Information</h2>
+            </div>
+        </div>
+        <div *ngIf="currentUserDetails?.Role === 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/transaction/create" class="module mid">
+                <h2>Transfer Money</h2>
+            </div>
+        </div>
+        <div *ngIf="currentUserDetails?.Role !== 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/deposite/create" class="module mid">
+                <h2>Deposit Money</h2>
+            </div>
+        </div>
+        <div *ngIf="currentUserDetails?.Role === 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/transaction/index" class="module mid">
+                <h2>Transaction History</h2>
+            </div>
+        </div>
+        <div *ngIf="currentUserDetails?.Role === 'User'"  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/service/create" class="module mid">
+                <h2>Service</h2>
+            </div>
+        </div>
+        <div  class="col-md-6 col-12 text-center">
+            <div routerLink="/pages/service/index" class="module mid">
+                <h2>Service List</h2>
+            </div>
+        </div>
+    </div>
+</div>
